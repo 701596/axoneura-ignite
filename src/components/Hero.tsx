@@ -7,13 +7,17 @@ import InfiniteSlider from "@/components/ui/InfiniteSlider";
 const HERO_HLS_URL =
   "https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8";
 
-const partnerLogos = [
-  { name: "OpenAI", url: "https://html.tailus.io/blocks/customers/openai.svg" },
-  { name: "Nvidia", url: "https://html.tailus.io/blocks/customers/nvidia.svg" },
-  { name: "GitHub", url: "https://html.tailus.io/blocks/customers/github.svg" },
-  { name: "Google", url: "https://html.tailus.io/blocks/customers/google.svg" },
-  { name: "Microsoft", url: "https://html.tailus.io/blocks/customers/microsoft.svg" },
-  { name: "Loom", url: "https://html.tailus.io/blocks/customers/loom.svg" },
+const techStack = [
+  "React",
+  "TypeScript",
+  "Supabase",
+  "Vercel",
+  "Node.js",
+  "Tailwind CSS",
+  "GitHub",
+  "PostgreSQL",
+  "Vite",
+  "Framer Motion",
 ];
 
 const containerVariants = {
@@ -47,22 +51,14 @@ const Hero = () => {
         />
       </div>
 
-      {/* ── Mobile Aurora Background (hidden on desktop) ── */}
+      {/* ── Mobile Static Background (hidden on desktop) ── */}
       <div
         className="absolute inset-0 w-full h-full md:hidden"
         style={{
           zIndex: 0,
-          background: "radial-gradient(ellipse 80% 60% at 50% 120%, rgba(90,40,180,0.25) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(60,20,140,0.15) 0%, transparent 50%), #000000",
+          background: "radial-gradient(ellipse 120% 60% at 50% 100%, rgba(80,40,160,0.35) 0%, transparent 65%), #000000",
         }}
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 100% 80% at 50% 100%, rgba(100,50,200,0.2) 0%, transparent 70%)",
-            animation: "auroraShift 20s ease-in-out infinite alternate",
-          }}
-        />
-      </div>
+      />
 
       {/* ── Gradient overlay for top/bottom fade — z-1 ── */}
       <div
@@ -83,21 +79,17 @@ const Hero = () => {
         animate="visible"
       >
         {/* Badge pill */}
-        <motion.div variants={childVariants} className="glass-pill mb-8">
-          <Zap className="w-4 h-4 text-white/60" />
-          <span 
-            className="text-sm font-medium text-white/80" 
-            style={{ textShadow: "0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(255,255,255,0.15)" }}
-          >
-            Trusted by schools and businesses across the world
-          </span>
+        <motion.div variants={childVariants} className="mb-8">
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "999px", padding: "8px 18px", boxShadow: "0 0 20px rgba(255,255,255,0.06), 0 0 60px rgba(139,92,246,0.08)" }}>
+            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#8B5CF6", boxShadow: "0 0 8px rgba(139,92,246,0.8)", flexShrink: 0, display: "inline-block" }}></span>
+            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", fontWeight: 500, letterSpacing: "0.01em", textShadow: "0 0 20px rgba(255,255,255,0.3)" }}>Trusted by schools and businesses across the world</span>
+          </div>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
           variants={childVariants}
-          className="max-w-4xl font-bold tracking-[-0.03em] leading-[1.05]"
-          style={{ fontSize: "clamp(3rem, 5vw + 1rem, 5.5rem)" }}
+          className="max-w-4xl font-bold tracking-[-0.03em] leading-[1.05] text-4xl md:text-6xl lg:text-7xl"
         >
           <span className="text-white">Your Vision</span>
           <br />
@@ -107,8 +99,8 @@ const Hero = () => {
         {/* Subtext */}
         <motion.p
           variants={childVariants}
-          className="mt-6 max-w-2xl leading-[1.7]"
-          style={{ color: "rgba(255,255,255,0.5)", fontSize: "clamp(1rem, 1.5vw + 0.5rem, 1.25rem)" }}
+          className="mt-6 max-w-2xl leading-[1.7] text-base md:text-lg"
+          style={{ color: "rgba(255,255,255,0.5)" }}
         >
           We turn bold ideas into digital systems that run your school or
           business on autopilot.
@@ -137,20 +129,27 @@ const Hero = () => {
           <div className="container-max flex flex-col md:flex-row items-center gap-6 md:gap-0 py-8 px-4 sm:px-6 lg:px-8">
             <div className="shrink-0 md:pr-8 md:border-r" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
               <p className="text-sm font-medium whitespace-nowrap" style={{ color: "rgba(255,255,255,0.35)" }}>
-                Trusted by teams building the future
+                Built with modern technology
               </p>
             </div>
 
             <div className="flex-1 min-w-0 md:pl-8">
               <InfiniteSlider speed={25} gap={56}>
-                {partnerLogos.map((logo) => (
-                  <img
-                    key={logo.name}
-                    src={logo.url}
-                    alt={logo.name}
-                    className="h-6 w-auto brightness-0 invert opacity-25 hover:opacity-50 transition-opacity duration-300"
-                    loading="lazy"
-                  />
+                {techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.09)",
+                      borderRadius: "999px",
+                      padding: "6px 14px",
+                      fontSize: "12px",
+                      color: "rgba(255,255,255,0.45)",
+                      whiteSpace: "nowrap"
+                    }}
+                  >
+                    {tech}
+                  </span>
                 ))}
               </InfiniteSlider>
             </div>

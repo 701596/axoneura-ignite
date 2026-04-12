@@ -15,8 +15,7 @@ const Services = () => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>
           <h2
-            className="text-white font-bold tracking-[-0.02em]"
-            style={{ fontSize: "clamp(1.75rem, 2.5vw + 1rem, 3.25rem)" }}
+            className="text-white font-bold tracking-[-0.02em] text-3xl md:text-5xl"
           >
             Let's discuss your project
           </h2>

@@ -47,7 +47,7 @@ const Business = () => (
 
     {/* Pain points — numbered list */}
     <SectionWrapper>
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Sound familiar?</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Sound familiar?</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {painPoints.map((point, index) => (
           <motion.div
@@ -75,7 +75,7 @@ const Business = () => (
 
     {/* Solutions */}
     <SectionWrapper>
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Here's what we build for businesses</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Here's what we build for businesses</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {solutions.map((solution) => (
           <div key={solution} className="glass-card p-5 flex items-start gap-3">
@@ -90,10 +90,10 @@ const Business = () => (
     <SectionWrapper>
       <div className="max-w-3xl mb-10">
         <span className="eyebrow mb-6 block uppercase tracking-widest text-[11px] text-white/30">THE TRANSFORMATION</span>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white">What changes when you go digital</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white">What changes when you go digital</h2>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {
             before: "Customers can't find you — you rely on word of mouth only",
@@ -139,7 +139,7 @@ const Business = () => (
     <SectionWrapper>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Let's grow your business</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">Let's grow your business</h2>
           <p className="mt-3" style={{ color: "rgba(255,255,255,0.4)" }}>
             Tell us about your business and we'll build a custom digital
             strategy — free of charge.

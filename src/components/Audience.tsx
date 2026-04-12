@@ -67,8 +67,7 @@ const Audience = () => {
           className="text-center mb-12"
         >
           <h2
-            className="text-white font-bold tracking-[-0.02em]"
-            style={{ fontSize: "clamp(1.75rem, 2.5vw + 1rem, 3.25rem)" }}
+            className="text-white font-bold tracking-[-0.02em] text-3xl md:text-5xl"
           >
             Who We Serve
           </h2>

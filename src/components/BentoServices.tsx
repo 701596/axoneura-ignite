@@ -68,8 +68,7 @@ const Services = () => {
         >
           <span className="eyebrow">WHAT WE BUILD</span>
           <h2
-            className="text-white font-bold tracking-[-0.02em] mt-3"
-            style={{ fontSize: "clamp(2rem, 3vw + 1rem, 3.25rem)" }}
+            className="text-white font-bold tracking-[-0.02em] mt-3 text-3xl md:text-5xl"
           >
             Systems that run your operation.
           </h2>
@@ -79,7 +78,7 @@ const Services = () => {
         </motion.div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 auto-rows-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto">
           {bentoCards.map((card, index) => (
             <motion.div
               key={card.number}

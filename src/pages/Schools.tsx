@@ -45,9 +45,9 @@ const Schools = () => (
       </div>
     </SectionWrapper>
 
-    {/* Pain points — numbered list, no red icons */}
+    {/* Pain points — numbered list */}
     <SectionWrapper>
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Sound familiar?</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Sound familiar?</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {painPoints.map((point, index) => (
           <motion.div
@@ -80,7 +80,7 @@ const Schools = () => (
 
     {/* Solutions */}
     <SectionWrapper>
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Here's what we build for schools</h2>
+      <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Here's what we build for schools</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {solutions.map((solution) => (
           <div key={solution} className="glass-card p-5 flex items-start gap-3">
@@ -96,7 +96,7 @@ const Schools = () => (
     <SectionWrapper>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Let's digitize your school</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">Let's digitize your school</h2>
           <p className="mt-3" style={{ color: "rgba(255,255,255,0.4)" }}>
             Tell us about your school and we'll build a custom plan — free of charge.
           </p>

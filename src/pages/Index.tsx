@@ -42,8 +42,7 @@ const Home = () => (
         >
           <span className="eyebrow mb-6 block uppercase tracking-widest text-[11px] text-white/30">THE DIFFERENCE</span>
           <h2
-            className="text-white font-bold tracking-[-0.02em]"
-            style={{ fontSize: "clamp(1.75rem, 2.5vw + 1rem, 3.25rem)" }}
+            className="text-white font-bold tracking-[-0.02em] text-3xl md:text-5xl"
           >
             Why Axoneura
           </h2>
@@ -73,7 +72,7 @@ const Home = () => (
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-6 sm:gap-10 py-10"
+              className="flex flex-col md:flex-row gap-6 sm:gap-10 py-10"
               style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
             >
               <div className="shrink-0 sm:min-w-[80px]">
@@ -100,8 +99,7 @@ const Home = () => (
             viewport={{ once: true }}
           >
             <h2
-              className="text-white font-bold tracking-[-0.02em]"
-              style={{ fontSize: "clamp(1.75rem, 2.5vw + 1rem, 3.25rem)" }}
+              className="text-white font-bold tracking-[-0.02em] text-3xl md:text-5xl"
             >
               Ready to go digital?
             </h2>

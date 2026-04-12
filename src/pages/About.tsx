@@ -63,7 +63,7 @@ const About = () => (
 
     {/* Stats row */}
     <SectionWrapper className="!pt-0">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
@@ -158,7 +158,7 @@ const About = () => (
     <SectionWrapper>
       <div className="mb-10 text-center lg:text-left">
         <span className="eyebrow block mb-4 uppercase tracking-widest text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>OUR IMPACT</span>
-        <h2 className="text-3xl font-bold text-white mb-4">Real systems. Real results.</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Real systems. Real results.</h2>
         <p className="text-[15px] leading-[1.6] max-w-2xl" style={{ color: "rgba(255,255,255,0.5)" }}>
           From a school in Lucknow that plugged a two-year financial leak, to businesses across India that went from invisible to ranking on Google — the work we do has measurable outcomes.
         </p>

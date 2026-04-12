@@ -365,6 +365,12 @@ function GlobeChart() {
 }
 
 export default function Globe() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <section className="section-padding overflow-hidden">
       <div className="container-max">
@@ -378,8 +384,7 @@ export default function Globe() {
           >
             <span className="eyebrow">GLOBAL REACH</span>
             <h2
-              className="text-white font-bold tracking-tight mt-4"
-              style={{ fontSize: "clamp(2rem, 3vw + 1rem, 3rem)" }}
+              className="text-white font-bold tracking-tight mt-4 text-3xl md:text-5xl"
             >
               Serving clients worldwide
             </h2>
@@ -418,7 +423,26 @@ export default function Globe() {
             viewport={{ once: true, margin: "-100px" }}
             className="relative aspect-square max-w-[550px] mx-auto w-full"
           >
-            <GlobeChart />
+            {isMobile ? (
+              <div style={{
+                width: '100%',
+                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '16px',
+                padding: '32px 24px',
+                textAlign: 'center'
+              }}>
+                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>Global Reach</div>
+                <div style={{ fontSize: '24px', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>Serving clients worldwide</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
+                  {['Lucknow','Delhi','Mumbai','Bangalore','Chennai','Dubai','Singapore','London','New York','Tokyo'].map(city => (
+                    <span key={city} style={{ fontSize: '12px', padding: '4px 12px', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)' }}>{city}</span>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <GlobeChart />
+            )}
           </motion.div>
         </div>
       </div>

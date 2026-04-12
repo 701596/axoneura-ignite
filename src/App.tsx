@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
+import ParticleBackground from "./components/ParticleBackground";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
@@ -25,6 +26,7 @@ const AnimatedRoutes = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
+        style={{ willChange: 'auto' }}
       >
         <Layout>
           <Routes location={location}>
@@ -48,6 +50,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ParticleBackground />
         <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>
