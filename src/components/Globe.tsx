@@ -353,7 +353,7 @@ function GlobeChart() {
   }, []);
 
   return (
-    <div className="relative w-full h-[500px]">
+    <div className="relative w-full h-full">
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center text-white/50 text-sm">
           Loading 3D Globe...
@@ -366,9 +366,9 @@ function GlobeChart() {
 
 export default function Globe() {
   return (
-    <section className="section-padding overflow-hidden">
+    <section className="section-padding">
       <div className="container-max">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -415,8 +415,7 @@ export default function Globe() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="relative max-w-[550px] mx-auto w-full"
-            style={{ height: "clamp(300px, 50vw, 500px)" }}
+            className="relative max-w-[550px] mx-auto w-full mt-6 lg:mt-0 h-[380px] lg:h-[500px]"
           >
             <GlobeChart />
           </motion.div>

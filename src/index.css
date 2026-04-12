@@ -125,9 +125,6 @@
   .animate-slide-infinite {
     animation: slide-infinite var(--slider-duration, 30s) linear infinite;
   }
-  .animate-slide-infinite:hover {
-    animation-play-state: paused;
-  }
 }
 
 /* ── Scrollbar styling ────────────────── */

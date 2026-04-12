@@ -11,7 +11,7 @@ const InfiniteSlider = ({ children, speed = 30, gap = 48, className = "" }: Infi
   return (
     <div className={`overflow-hidden ${className}`}>
       <div
-        className="animate-slide-infinite flex items-center"
+        className="animate-slide-infinite flex items-center w-max"
         style={{
           ["--slider-duration" as string]: `${speed}s`,
           gap: `${gap}px`,

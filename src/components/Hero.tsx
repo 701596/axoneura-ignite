@@ -18,6 +18,21 @@ const techStack = [
   "PostgreSQL",
   "Vite",
   "Framer Motion",
+  "Next.js",
+  "Prisma",
+  "Redis",
+  "Docker",
+  "AWS",
+  "Stripe",
+  "Figma",
+  "GraphQL",
+  "REST API",
+  "Python",
+  "TensorFlow",
+  "OpenAI API",
+  "Cloudflare",
+  "Nginx",
+  "Linux",
 ];
 
 const containerVariants = {
@@ -56,9 +71,16 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full md:hidden"
         style={{
           zIndex: 0,
-          background: "radial-gradient(ellipse 120% 60% at 50% 100%, rgba(80,40,160,0.35) 0%, transparent 65%), #000000",
+          background: "radial-gradient(ellipse 140% 70% at 50% 110%, rgba(100,50,200,0.55) 0%, rgba(60,20,140,0.25) 40%, transparent 70%), #000000",
         }}
-      />
+      >
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background: "radial-gradient(ellipse 80% 40% at 30% 80%, rgba(139,92,246,0.12) 0%, transparent 60%)",
+          }}
+        />
+      </div>
 
       {/* ── Gradient overlay for top/bottom fade — z-1 ── */}
       <div
@@ -134,7 +156,7 @@ const Hero = () => {
             </div>
 
             <div className="flex-1 min-w-0 md:pl-8">
-              <InfiniteSlider speed={25} gap={56}>
+              <InfiniteSlider speed={35} gap={56}>
                 {techStack.map((tech) => (
                   <span
                     key={tech}

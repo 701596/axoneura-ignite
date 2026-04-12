@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -119,14 +120,14 @@ const Navbar = () => {
 
       {/* Mobile full-screen menu overlay */}
       <AnimatePresence>
-        {mobileOpen && (
+        {mobileOpen && createPortal(
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden flex flex-col"
-            style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.98)", backdropFilter: "blur(20px)", zIndex: 99999 }}
+            style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: "#000000", overflow: "hidden", zIndex: 999999 }}
           >
             {/* Top Bar inside Overlay */}
             <div className="flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6">
@@ -188,7 +189,8 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             </div>
-          </motion.div>
+          </motion.div>,
+          document.body
         )}
       </AnimatePresence>
     </motion.nav>
