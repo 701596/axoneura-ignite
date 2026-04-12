@@ -365,12 +365,6 @@ function GlobeChart() {
 }
 
 export default function Globe() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
   return (
     <section className="section-padding overflow-hidden">
       <div className="container-max">
@@ -415,34 +409,16 @@ export default function Globe() {
             </div>
           </motion.div>
 
-          {/* Right: Globe canvas */}
+          {/* Right: Globe */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="relative aspect-square max-w-[550px] mx-auto w-full"
+            className="relative max-w-[550px] mx-auto w-full"
+            style={{ height: "clamp(300px, 50vw, 500px)" }}
           >
-            {isMobile ? (
-              <div style={{
-                width: '100%',
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '16px',
-                padding: '32px 24px',
-                textAlign: 'center'
-              }}>
-                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>Global Reach</div>
-                <div style={{ fontSize: '24px', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>Serving clients worldwide</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
-                  {['Lucknow','Delhi','Mumbai','Bangalore','Chennai','Dubai','Singapore','London','New York','Tokyo'].map(city => (
-                    <span key={city} style={{ fontSize: '12px', padding: '4px 12px', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)' }}>{city}</span>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <GlobeChart />
-            )}
+            <GlobeChart />
           </motion.div>
         </div>
       </div>

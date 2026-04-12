@@ -125,8 +125,8 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 md:hidden flex flex-col"
-            style={{ background: "rgba(0,0,0,0.95)", backdropFilter: "blur(24px)", zIndex: 100 }}
+            className="md:hidden flex flex-col"
+            style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.98)", backdropFilter: "blur(20px)", zIndex: 99999 }}
           >
             {/* Top Bar inside Overlay */}
             <div className="flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6">

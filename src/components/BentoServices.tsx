@@ -89,15 +89,7 @@ const Services = () => {
               variants={cardVariants}
               className={`glass-card p-7 sm:p-8 relative group ${card.span || ""}`}
             >
-              {/* Number — top right */}
-              <span
-                className="absolute top-6 right-7 font-extrabold text-5xl leading-none select-none transition-colors duration-300 group-hover:text-white/20"
-                style={{ color: "rgba(255,255,255,0.08)" }}
-              >
-                {card.number}
-              </span>
-
-              <h3 className="text-xl font-semibold text-white pr-14 mb-3">
+              <h3 className="text-xl font-semibold text-white mb-3">
                 {card.title}
               </h3>
               <p className="text-sm leading-[1.7]" style={{ color: "rgba(255,255,255,0.55)" }}>
