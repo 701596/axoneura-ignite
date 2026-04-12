@@ -62,6 +62,25 @@
   }
 }
 
+.logo-text {
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-fill-color: unset !important;
+  mask: none !important;
+  clip-path: none !important;
+  overflow: visible !important;
+  display: inline-block !important;
+}
+.logo-muted {
+  color: rgba(255,255,255,0.38) !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.38) !important;
+}
+
 @layer components {
   /* ── Card (default from design spec) ────── */
   .glass-card {

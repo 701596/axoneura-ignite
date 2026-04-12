@@ -38,34 +38,43 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
-        scrolled
-          ? "backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-          : "bg-transparent"
-      }`}
-      style={scrolled ? { background: "rgba(0,0,0,0.8)", zIndex: 100, willChange: 'auto' } : { zIndex: 100, willChange: 'auto' }}
+    <nav
+      className="fixed top-0 left-0 right-0"
+      style={{ zIndex: 100, overflow: 'visible' }}
     >
-      <div className="container-max flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6 lg:px-8">
-        {/* Logo — "Axon" white + "eura" dimmed, NO purple, NO clipping */}
-        <Link to="/" className="text-xl shrink-0 pl-5 md:pl-0" style={{ 
-          display: "flex",
-          alignItems: "center",
-          color: "#ffffff", 
-          fontWeight: 700, 
-          background: "none",
-          backgroundClip: "unset", 
-          WebkitBackgroundClip: "unset", 
-          WebkitTextFillColor: "white",
-          overflow: "visible",
-          lineHeight: "1.5",
-          height: "auto"
+      {/* Separate background layer — keeps backdrop-filter isolated from text */}
+      <div
+        className={`absolute inset-0 transition-all duration-500 ${
+          scrolled
+            ? "border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            : ""
+        }`}
+        style={{
+          background: scrolled ? "rgba(0,0,0,0.8)" : "transparent",
+          backdropFilter: scrolled ? "blur(24px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
+          zIndex: -1,
+        }}
+      />
+      <div className="container-max flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6 lg:px-8" style={{ overflow: 'visible' }}>
+        <a href="/" style={{
+          textDecoration: 'none',
+          display: 'inline-block',
+          flexShrink: 0,
+          lineHeight: 1,
         }}>
-          Axon<span style={{ color: "rgba(255,255,255,0.4)", WebkitTextFillColor: "rgba(255,255,255,0.4)", background: "none", backgroundClip: "unset", WebkitBackgroundClip: "unset" }}>eura</span>
-        </Link>
+          <span style={{
+            fontWeight: 800,
+            fontSize: '20px',
+            color: '#ffffff',
+            letterSpacing: '-0.02em',
+          }}>Axoneura</span><span style={{
+            fontWeight: 800,
+            fontSize: '18px',
+            color: 'rgba(255,255,255,0.4)',
+            letterSpacing: '-0.02em',
+          }}></span>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
@@ -131,21 +140,24 @@ const Navbar = () => {
           >
             {/* Top Bar inside Overlay */}
             <div className="flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6">
-              <Link to="/" onClick={() => setMobileOpen(false)} className="text-xl shrink-0 pl-5" style={{ 
-                display: "flex",
-                alignItems: "center",
-                color: "#ffffff", 
-                fontWeight: 700, 
-                background: "none",
-                backgroundClip: "unset", 
-                WebkitBackgroundClip: "unset", 
-                WebkitTextFillColor: "white",
-                overflow: "visible",
-                lineHeight: "1.5",
-                height: "auto"
+              <a href="/" style={{
+                textDecoration: 'none',
+                display: 'inline-block',
+                flexShrink: 0,
+                lineHeight: 1,
               }}>
-                Axon<span style={{ color: "rgba(255,255,255,0.4)", WebkitTextFillColor: "rgba(255,255,255,0.4)", background: "none", backgroundClip: "unset", WebkitBackgroundClip: "unset" }}>eura</span>
-              </Link>
+                <span style={{
+                  fontWeight: 800,
+                  fontSize: '18px',
+                  color: '#ffffff',
+                  letterSpacing: '-0.02em',
+                }}>Axon</span><span style={{
+                  fontWeight: 800,
+                  fontSize: '18px',
+                  color: 'rgba(255,255,255,0.4)',
+                  letterSpacing: '-0.02em',
+                }}>eura</span>
+              </a>
               <button
                 onClick={() => setMobileOpen(false)}
                 className="text-white p-2 rounded-lg hover:bg-white/5 transition-colors absolute top-4 right-4"
@@ -193,7 +205,7 @@ const Navbar = () => {
           document.body
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

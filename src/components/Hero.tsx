@@ -33,6 +33,16 @@ const techStack = [
   "Cloudflare",
   "Nginx",
   "Linux",
+  "Python",
+  "Rust",
+  "Go",
+  "C++",
+  "Java",
+  "Kotlin",
+  "Swift",
+  "R",
+  "Solidity",
+  "Bash",
 ];
 
 const containerVariants = {
@@ -71,7 +81,7 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full md:hidden"
         style={{
           zIndex: 0,
-          background: "radial-gradient(ellipse 140% 70% at 50% 110%, rgba(100,50,200,0.55) 0%, rgba(60,20,140,0.25) 40%, transparent 70%), #000000",
+          background: "radial-gradient(ellipse 140% 70% at 60% 100%, rgba(100,50,200,0.55) 0%, rgba(60,20,140,0.25) 40%, transparent 70%), #000000",
         }}
       >
         <div
