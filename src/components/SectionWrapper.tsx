@@ -1,23 +1,15 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-interface Props {
+interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
   id?: string;
 }
 
-const SectionWrapper = ({ children, className = "", id }: Props) => (
-  <motion.section
-    id={id}
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-80px" }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className={`section-padding ${className}`}
-  >
+const SectionWrapper = ({ children, className = "", id }: SectionWrapperProps) => (
+  <section className={`section-padding ${className}`} id={id}>
     <div className="container-max">{children}</div>
-  </motion.section>
+  </section>
 );
 
 export default SectionWrapper;

@@ -1,52 +1,90 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+
+const footerLinks = [
+  { to: "/services", label: "Services" },
+  { to: "/schools", label: "Schools" },
+  { to: "/business", label: "Business" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Footer = () => (
-  <footer className="border-t border-border/10 section-padding !py-12">
-    <div className="container-max">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div>
-          <Link to="/" className="text-xl font-bold text-foreground">
-            Axon<span className="text-primary">eura</span>
-          </Link>
-          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Building digital systems that automate operations and make you look like a category leader online.
+  <footer className="bg-[#000000]" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", boxShadow: "none", backgroundImage: "none" }}>
+    <div className="container-max px-4 sm:px-6 lg:px-8 py-14">
+      <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
+        {/* Brand */}
+        <div className="max-w-xs">
+          <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.3)" }}>
+            Building digital India
           </p>
         </div>
-        <div>
-          <h4 className="font-semibold text-foreground mb-3 text-sm">Pages</h4>
-          <div className="flex flex-col gap-2">
-            {[
-              { to: "/services", label: "Services" },
-              { to: "/schools", label: "For Schools" },
-              { to: "/business", label: "For Business" },
-              { to: "/about", label: "About Us" },
-            ].map((l) => (
-              <Link key={l.to} to={l.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                {l.label}
-              </Link>
-            ))}
-          </div>
+
+        {/* Center links */}
+        <div className="flex flex-wrap gap-x-8 gap-y-3">
+          {footerLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="text-sm transition-colors"
+              style={{ color: "rgba(255,255,255,0.3)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
-        <div>
-          <h4 className="font-semibold text-foreground mb-3 text-sm">Services</h4>
-          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span>SaaS Development</span>
-            <span>Web Design</span>
-            <span>Digital Marketing</span>
-            <span>Automation</span>
-          </div>
-        </div>
-        <div>
-          <h4 className="font-semibold text-foreground mb-3 text-sm">Contact</h4>
-          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span>hello@axoneura.in</span>
-            <span>India</span>
-            <Link to="/contact" className="text-primary hover:underline">Get in touch →</Link>
-          </div>
+
+        {/* Right — social buttons */}
+        <div className="flex items-center gap-3">
+          <a
+            href="https://wa.me/919876543210"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-white text-black rounded-full px-4 py-2 text-sm font-medium hover:bg-white/90 transition-colors"
+          >
+            WhatsApp
+            <ArrowRight className="w-3 h-3" />
+          </a>
+          <a
+            href="#"
+            className="text-sm px-3 py-2 rounded-full border transition-colors"
+            style={{ color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.1)" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "rgba(255,255,255,0.4)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            }}
+          >
+            LinkedIn
+          </a>
+          <a
+            href="#"
+            className="text-sm px-3 py-2 rounded-full border transition-colors"
+            style={{ color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.1)" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "rgba(255,255,255,0.4)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            }}
+          >
+            Instagram
+          </a>
         </div>
       </div>
-      <div className="mt-10 pt-6 border-t border-border/10 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Axoneura. All rights reserved.
+
+      {/* Bottom bar */}
+      <div className="mt-14 pt-6 border-t border-white/5 text-center">
+        <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
+          © {new Date().getFullYear()} Axoneura · axoneura.in · Lucknow, India
+        </span>
       </div>
     </div>
   </footer>

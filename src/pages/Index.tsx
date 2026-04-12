@@ -1,143 +1,141 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Code2, Globe, Megaphone, Zap, GraduationCap, Store, ArrowRight, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import SectionWrapper from "@/components/SectionWrapper";
-import ServiceCard from "@/components/ServiceCard";
+import { CheckCircle, ArrowRight } from "lucide-react";
+import Hero from "@/components/Hero";
+import BentoServices from "@/components/BentoServices";
+import GlobeSection from "@/components/Globe";
+import Audience from "@/components/Audience";
 import LeadForm from "@/components/LeadForm";
+
+/* ── Trust signals ────────────────────────── */
+const trustPoints = [
+  "Built for Indian businesses — we understand your market",
+  "End-to-end: design, develop, deploy, and support",
+  "Transparent pricing, no hidden costs",
+  "Mobile-first — because your users are on phones",
+  "Fast delivery with modern tech stack",
+  "Dedicated support — we're a WhatsApp message away",
+];
 
 const Home = () => (
   <>
-    {/* Hero */}
-    <section className="relative overflow-hidden section-padding !pt-28 sm:!pt-36 !pb-20">
-      {/* Glow effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+    {/* 1. Hero */}
+    <Hero />
 
-      <div className="container-max relative z-10">
+    {/* 2. Services — Bento Grid */}
+    <BentoServices />
+
+    {/* 3. Globe */}
+    <GlobeSection />
+
+    {/* 4. Audience */}
+    <Audience />
+
+    {/* 5. Why Axoneura */}
+    <section className="section-padding">
+      <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl"
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-14 text-left"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
-            AI & Digital Systems for India
-          </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
-            Stop running your school on WhatsApp groups
-          </h1>
-          <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Axoneura builds digital systems that automate operations and make you look like a category leader online.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Link to="/contact">
-              <Button size="lg" className="glow-border text-base px-8">
-                Book a free call
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-            <Link to="/services">
-              <Button variant="outline" size="lg" className="text-base">
-                See our services
-              </Button>
-            </Link>
-          </div>
+          <span className="eyebrow mb-6 block uppercase tracking-widest text-[11px] text-white/30">THE DIFFERENCE</span>
+          <h2
+            className="text-white font-bold tracking-[-0.02em]"
+            style={{ fontSize: "clamp(1.75rem, 2.5vw + 1rem, 3.25rem)" }}
+          >
+            Why Axoneura
+          </h2>
         </motion.div>
+
+        <div className="flex flex-col">
+          {[
+            {
+              num: "01",
+              title: "Built for your market, not a generic template",
+              body: "Every system we build is designed around how our clients actually operate — their workflows, their market, their customers. Whether you're a school in Lucknow or a startup in London, we build for your reality, not a generic template."
+            },
+            {
+              num: "02",
+              title: "End-to-end ownership, not handoffs",
+              body: "Strategy, design, development, launch, and support — all under one roof. No agency middlemen. No freelancer chaos. You deal with one team that owns the entire result."
+            },
+            {
+              num: "03",
+              title: "We measure success in rupees and admissions",
+              body: "Every system we deliver has a job: generate leads, save time, or protect revenue. We track outcomes, not just deliverables. If it doesn't perform, we fix it — that's the commitment."
+            }
+          ].map((row, index) => (
+            <motion.div
+              key={row.num}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-6 sm:gap-10 py-10"
+              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+            >
+              <div className="shrink-0 sm:min-w-[80px]">
+                <span className="text-[64px] font-[800] leading-none" style={{ color: "rgba(255,255,255,0.15)" }}>{row.num}</span>
+              </div>
+              <div className="flex flex-col justify-center">
+                <h3 className="text-[22px] text-white font-[600]">{row.title}</h3>
+                <p className="mt-2 text-[16px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.55)" }}>{row.body}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
 
-    {/* Trust bar */}
-    <SectionWrapper className="!py-10 border-y border-border/10">
-      <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 text-muted-foreground">
-        {["50+ Projects Delivered", "Schools & Businesses", "Made in India 🇮🇳", "24/7 Support"].map((t) => (
-          <span key={t} className="text-sm font-medium tracking-wide">{t}</span>
-        ))}
-      </div>
-    </SectionWrapper>
+    {/* 6. Lead Form CTA */}
+    <section className="section-padding pb-[80px]" id="book-call">
+      <div className="container-max">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
+          >
+            <h2
+              className="text-white font-bold tracking-[-0.02em]"
+              style={{ fontSize: "clamp(1.75rem, 2.5vw + 1rem, 3.25rem)" }}
+            >
+              Ready to go digital?
+            </h2>
+            <p className="mt-4 leading-relaxed max-w-md" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Tell us about your school or business. We'll get back within 24
+              hours with a free consultation plan.
+            </p>
+            <div className="mt-8 flex flex-col gap-4">
+              {[
+                "Free consultation — no strings attached",
+                "Response within 24 hours",
+                "India's fastest-growing digital agency",
+              ].map((point) => (
+                <div key={point} className="flex items-center gap-2.5">
+                  <CheckCircle className="w-4 h-4" style={{ color: "rgba(255,255,255,0.2)" }} />
+                  <span className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
+                    {point}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-    {/* Services overview */}
-    <SectionWrapper>
-      <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-3xl font-bold text-foreground">What we build</h2>
-        <p className="mt-3 text-muted-foreground max-w-lg mx-auto">End-to-end digital solutions for schools and local businesses across India.</p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <ServiceCard icon={Code2} title="SaaS Development" description="Custom software platforms built to solve your specific operational challenges." />
-        <ServiceCard icon={Globe} title="Web Design" description="Modern, fast websites that establish your brand as a category leader." />
-        <ServiceCard icon={Megaphone} title="Digital Marketing" description="SEO, social media, and ad campaigns that bring real leads to your door." />
-        <ServiceCard icon={Zap} title="Automation" description="Eliminate manual work with smart workflows that save you hours every day." />
-      </div>
-    </SectionWrapper>
-
-    {/* Who we serve */}
-    <SectionWrapper>
-      <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Who we serve</h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {[
-          {
-            icon: GraduationCap,
-            title: "Schools & Institutions",
-            desc: "From admissions to fee collection, we digitize every process so you can focus on education.",
-            link: "/schools",
-          },
-          {
-            icon: Store,
-            title: "Local Businesses",
-            desc: "Get discovered online, automate operations, and compete with the big brands in your city.",
-            link: "/business",
-          },
-        ].map((item) => (
-          <Link key={item.link} to={item.link}>
-            <motion.div whileHover={{ y: -4 }} className="glass-card p-8 h-full group hover:glow-border transition-all">
-              <item.icon className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-              <span className="mt-4 inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                Learn more <ArrowRight className="w-4 h-4 ml-1" />
-              </span>
-            </motion.div>
-          </Link>
-        ))}
-      </div>
-    </SectionWrapper>
-
-    {/* Why us */}
-    <SectionWrapper>
-      <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Why Axoneura</h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {[
-          "Built for Indian businesses — we understand your market",
-          "End-to-end: design, develop, deploy, and support",
-          "Transparent pricing, no hidden costs",
-          "Mobile-first — because your users are on phones",
-          "Fast delivery with modern tech stack",
-          "Dedicated support — we're a WhatsApp message away",
-        ].map((point) => (
-          <div key={point} className="glass-card p-5 flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <span className="text-sm text-foreground leading-relaxed">{point}</span>
-          </div>
-        ))}
-      </div>
-    </SectionWrapper>
-
-    {/* Lead capture */}
-    <SectionWrapper id="book-call">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Ready to go digital?</h2>
-          <p className="mt-3 text-muted-foreground leading-relaxed max-w-md">
-            Tell us about your school or business. We'll get back to you within 24 hours with a free consultation plan.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
+          >
+            <LeadForm source="homepage" />
+          </motion.div>
         </div>
-        <LeadForm source="homepage" />
       </div>
-    </SectionWrapper>
+    </section>
   </>
 );
 
