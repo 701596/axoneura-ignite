@@ -17,8 +17,8 @@ const CaseStudy = () => (
       background: "rgba(255,255,255,0.02)",
       border: "1px solid rgba(255,255,255,0.08)",
       borderRadius: "16px",
-      padding: "48px",
     }}
+    className="p-6 md:p-[48px]"
   >
     {/* Top row — pills */}
     <div className="flex flex-wrap items-center gap-3">
@@ -84,16 +84,13 @@ const CaseStudy = () => (
     </div>
 
     {/* Metrics row */}
-    <div className="mt-10 flex flex-col sm:flex-row">
+    <div className="mt-8 flex flex-wrap gap-y-6 sm:gap-y-0 sm:flex-row">
       {metrics.map((metric, index) => (
         <div
           key={metric.value}
-          className="py-4 sm:py-0 sm:px-8 first:sm:pl-0"
-          style={
-            index < metrics.length - 1
-              ? { borderRight: "1px solid rgba(255,255,255,0.08)" }
-              : undefined
-          }
+          className={`w-full sm:w-auto py-2 sm:py-0 sm:px-8 first:sm:pl-0 ${
+            index < metrics.length - 1 ? "sm:border-r sm:border-white/10" : ""
+          }`}
         >
           <p className="text-3xl font-extrabold text-white">{metric.value}</p>
           <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>

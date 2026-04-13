@@ -8,6 +8,7 @@ import ParticleBackground from "./components/ParticleBackground";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
+import EduOpus from "./pages/EduOpus";
 import Schools from "./pages/Schools";
 import Business from "./pages/Business";
 import About from "./pages/About";
@@ -32,6 +33,7 @@ const AnimatedRoutes = () => {
           <Routes location={location}>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/eduopus" element={<EduOpus />} />
             <Route path="/schools" element={<Schools />} />
             <Route path="/business" element={<Business />} />
             <Route path="/about" element={<About />} />

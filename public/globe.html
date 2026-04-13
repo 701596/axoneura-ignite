@@ -25,7 +25,10 @@ am5.ready(function() {
     projection: am5map.geoOrthographic(),
     paddingBottom: 0, paddingTop: 0, paddingLeft: 0, paddingRight: 0,
     rotationX: -78,
-    rotationY: -20
+    rotationY: -20,
+    minZoomLevel: 0.9,
+    maxZoomLevel: 0.9,
+    zoomLevel: 0.9
   }));
 
   var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
@@ -114,58 +117,70 @@ am5.ready(function() {
     var isPrimary = dataItem.dataContext.primary;
     var circle = am5.Circle.new(root, {
       radius: isPrimary ? 5 : 3,
-      fill: isPrimary ? am5.color(0x8B5CF6) : am5.color(0xffffff),
-      fillOpacity: isPrimary ? 1 : 0.35,
-      stroke: isPrimary ? am5.color(0xd8b4fe) : am5.color(0xffffff),
-      strokeWidth: isPrimary ? 1.5 : 0,
+      fill: am5.color(0x8B5CF6),
+      fillOpacity: isPrimary ? 1 : 0.5,
+      stroke: am5.color(0xd8b4fe),
+      strokeWidth: isPrimary ? 1.5 : 0.8,
       strokeOpacity: 0.8,
       tooltipText: "{name}"
     });
-    if (isPrimary) {
-      circle.animate({ key: "scale", from: 1, to: 2.2, duration: 1500, loops: Infinity, easing: am5.ease.yoyo(am5.ease.sinOut) });
-      circle.animate({ key: "fillOpacity", from: 1, to: 0.3, duration: 1500, loops: Infinity, easing: am5.ease.yoyo(am5.ease.sinOut) });
-    }
+    circle.animate({
+      key: "scale", from: 1, to: isPrimary ? 2.2 : 1.6,
+      duration: isPrimary ? 1500 : 2000,
+      loops: Infinity,
+      easing: am5.ease.yoyo(am5.ease.sinOut)
+    });
+    circle.animate({
+      key: "fillOpacity", from: isPrimary ? 1 : 0.5, to: 0.2,
+      duration: isPrimary ? 1500 : 2000,
+      loops: Infinity,
+      easing: am5.ease.yoyo(am5.ease.sinOut)
+    });
     return am5.Bullet.new(root, { sprite: circle });
   });
 
-  var isInteracting = false;
-  var resumeTimer = null;
+  // Rotation logic — using animationStopped properly
+  var rotationAnimation = null;
 
   function startRotation() {
-    var from = chart.get("rotationX") || 0;
-    chart.animate({
+    var fromX = chart.get("rotationX") || 0;
+    rotationAnimation = chart.animate({
       key: "rotationX",
-      from: from,
-      to: from + 360,
+      from: fromX,
+      to: fromX + 360,
       duration: 30000,
       loops: Infinity
     });
   }
 
+  function stopRotation() {
+    if (rotationAnimation) {
+      rotationAnimation.stop();
+      rotationAnimation = null;
+    }
+  }
+
   function smoothReturnAndSpin() {
-    var currentY = chart.get("rotationY") || 0;
+    // Smoothly return Y tilt to default -20
     chart.animate({
       key: "rotationY",
-      to: 0,
-      duration: 800,
+      to: -20,
+      duration: 600,
       easing: am5.ease.out(am5.ease.cubic)
     });
-    setTimeout(function() {
-      startRotation();
-    }, 800);
+    // Start X rotation immediately — no delay
+    startRotation();
   }
 
   chart.events.on("panstarted", function() {
-    isInteracting = true;
-    if (resumeTimer) clearTimeout(resumeTimer);
-    chart.animations.forEach(function(a) { a.stop(); });
+    stopRotation();
   });
 
   chart.events.on("panended", function() {
-    isInteracting = false;
     smoothReturnAndSpin();
   });
 
+  // Start on load
   startRotation();
   chart.appear(1000, 100);
 });
