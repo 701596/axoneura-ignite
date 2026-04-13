@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
@@ -18,6 +19,13 @@ const trustPoints = [
 
 const Home = () => (
   <>
+    <Helmet>
+      <title>Axoneura — AI &amp; Digital Systems for Schools and Businesses in India</title>
+      <meta name="description" content="Axoneura builds custom software, websites, and digital marketing systems for schools and businesses across India. Based in Lucknow, UP." />
+      <meta name="keywords" content="web development India, school ERP India, fee management software, digital marketing Lucknow, custom software UP" />
+      <link rel="canonical" href="https://axoneura.in/" />
+    </Helmet>
+
     {/* 1. Hero */}
     <Hero />
 

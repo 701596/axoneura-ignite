@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -24,6 +25,12 @@ const solutions = [
 
 const Schools = () => (
   <>
+    <Helmet>
+      <title>Digital Solutions for Schools in India | Axoneura</title>
+      <meta name="description" content="Axoneura helps schools across India digitize admissions, fees, and parent communication. Proven results — 100% financial accuracy guaranteed." />
+      <link rel="canonical" href="https://axoneura.in/schools" />
+    </Helmet>
+
     <SectionWrapper className="!pt-28 sm:!pt-36">
       <div className="max-w-3xl">
         <span className="eyebrow mb-6 block">FOR SCHOOL PRINCIPALS & ADMINISTRATORS</span>

@@ -49,6 +49,22 @@ const LeadForm = ({ source = "website", className = "" }: LeadFormProps) => {
     if (error) {
       toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
     } else {
+      // Silently call the edge function to email the lead details
+      fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-lead-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          name: result.data.name,
+          phone: result.data.phone || "",
+          email: result.data.email,
+          message: result.data.message || "",
+          source,
+        }),
+      }).catch(console.error);
+
       setSubmitted(true);
       setForm({ name: "", phone: "", email: "", message: "" });
     }

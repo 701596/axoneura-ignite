@@ -39,7 +39,7 @@ const Footer = () => (
         {/* Right — social buttons */}
         <div className="flex items-center gap-3">
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/917015964277?text=Hi%20Axoneura%2C%20I%20want%20to%20book%20a%20free%20call"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-white text-black rounded-full px-4 py-2 text-sm font-medium hover:bg-white/90 transition-colors"
@@ -47,23 +47,11 @@ const Footer = () => (
             WhatsApp
             <ArrowRight className="w-3 h-3" />
           </a>
+
           <a
-            href="#"
-            className="text-sm px-3 py-2 rounded-full border transition-colors"
-            style={{ color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.1)" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.7)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.4)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-            }}
-          >
-            LinkedIn
-          </a>
-          <a
-            href="#"
+            href="https://www.instagram.com/axoneura?igsh=d3htcGUwZTJjcmY3"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-sm px-3 py-2 rounded-full border transition-colors"
             style={{ color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.1)" }}
             onMouseEnter={(e) => {
@@ -83,7 +71,7 @@ const Footer = () => (
       {/* Bottom bar */}
       <div className="mt-14 pt-6 border-t border-white/5 text-center">
         <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-          © {new Date().getFullYear()} Axoneura · axoneura.in · Lucknow, India
+          © {new Date().getFullYear()} Axoneura · <a href="https://axoneura.in" className="hover:text-white/40 transition-colors">axoneura.in</a> · <a href="https://www.google.com/maps/search/?api=1&query=Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors">Lucknow, India</a>
         </span>
       </div>
     </div>

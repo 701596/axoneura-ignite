@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -17,7 +18,7 @@ const features = [
   {
     title: "Absent today? Parents know in seconds.",
     sharp: "No phone calls from the office. No manual messages. It just works.",
-    body: "The moment a teacher marks a student absent, an automatic alert fires to the parent's phone — even if the app is closed."
+    body: "The moment a teacher marks a student absent, an automatic alert fires to parent's phone and they instantly get notified about thier  child's absence. "
   },
   {
     title: "Your finance team goes from overwhelmed to in control",
@@ -35,6 +36,13 @@ const results = [
 
 const EduOpus = () => (
   <>
+    <Helmet>
+      <title>EduOpus — School Fee Management System India | Axoneura</title>
+      <meta name="description" content="EduOpus by Axoneura is India's smartest school fee management ERP. Automatic receipts, parent portal, attendance alerts, real-time dashboards." />
+      <meta name="keywords" content="school fee management software India, school ERP UP, fee management system Lucknow, school management software" />
+      <link rel="canonical" href="https://axoneura.in/eduopus" />
+    </Helmet>
+
     {/* 1. Hero Section */}
     <SectionWrapper className="!pt-28 sm:!pt-36">
       <div className="max-w-4xl text-center mx-auto">

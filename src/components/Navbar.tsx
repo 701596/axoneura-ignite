@@ -10,6 +10,7 @@ const navLinks = [
   { to: "/schools", label: "Schools" },
   { to: "/business", label: "Business" },
   { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -57,7 +58,7 @@ const Navbar = () => {
         }}
       />
       <div className="container-max flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6 lg:px-8" style={{ overflow: 'visible' }}>
-        <a href="/" style={{
+        <Link to="/" style={{
           textDecoration: 'none',
           display: 'inline-block',
           flexShrink: 0,
@@ -68,13 +69,8 @@ const Navbar = () => {
             fontSize: '20px',
             color: '#ffffff',
             letterSpacing: '-0.02em',
-          }}>Axoneura</span><span style={{
-            fontWeight: 800,
-            fontSize: '18px',
-            color: 'rgba(255,255,255,0.4)',
-            letterSpacing: '-0.02em',
-          }}></span>
-        </a>
+          }}>Axoneura</span>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">

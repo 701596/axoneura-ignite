@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import SectionWrapper from "@/components/SectionWrapper";
 
 const stats = [
-  { value: "2023", label: "Founded" },
-  { value: "Lucknow, UP", label: "Headquartered" },
+  { value: "Secure", label: "Data Architecture" },
+  { value: <a href="https://www.google.com/maps/search/?api=1&query=Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Lucknow, UP</a>, label: "Headquartered" },
   { value: "Schools + Business", label: "We serve" },
   { value: "100%", label: "Data accuracy" },
 ];

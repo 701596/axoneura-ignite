@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -24,6 +25,12 @@ const solutions = [
 
 const Business = () => (
   <>
+    <Helmet>
+      <title>Web Development and Digital Marketing for Indian Businesses | Axoneura</title>
+      <meta name="description" content="Professional websites, SEO, CRM, and automation for local businesses across India. Get found on Google and grow faster with Axoneura." />
+      <link rel="canonical" href="https://axoneura.in/business" />
+    </Helmet>
+
     <SectionWrapper className="!pt-28 sm:!pt-36">
       <div className="max-w-3xl">
         <span className="eyebrow mb-6 block">FOR LOCAL BUSINESS OWNERS</span>
