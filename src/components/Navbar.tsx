@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -119,92 +118,104 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden"
+          onClick={() => setMobileOpen((prev) => !prev)}
           aria-label="Toggle menu"
+          style={{
+            cursor: "pointer",
+            zIndex: 999999,
+            position: "relative",
+            background: "none",
+            border: "none",
+            color: "#ffffff",
+            padding: "8px",
+          }}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          <Menu size={22} />
         </button>
       </div>
 
       {/* Mobile full-screen menu overlay */}
-      <AnimatePresence>
-        {mobileOpen && createPortal(
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden flex flex-col"
-            style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: "#000000", overflow: "hidden", zIndex: 999999 }}
+      {mobileOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 999999,
+            background: "#000000",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+            style={{
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              color: "#ffffff",
+              fontSize: "24px",
+              cursor: "pointer",
+              background: "none",
+              border: "none",
+            }}
           >
-            {/* Top Bar inside Overlay */}
-            <div className="flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6">
-              <a href="/" style={{
-                textDecoration: 'none',
-                display: 'inline-block',
-                flexShrink: 0,
-                lineHeight: 1,
-              }}>
-                <span style={{
-                  fontWeight: 800,
-                  fontSize: '18px',
-                  color: '#ffffff',
-                  letterSpacing: '-0.02em',
-                }}>Axon</span><span style={{
-                  fontWeight: 800,
-                  fontSize: '18px',
-                  color: 'rgba(255,255,255,0.4)',
-                  letterSpacing: '-0.02em',
-                }}>eura</span>
-              </a>
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="text-white p-2 rounded-lg hover:bg-white/5 transition-colors absolute top-4 right-4"
-                aria-label="Close menu"
-              >
-                <X size={28} />
-              </button>
-            </div>
+            <X size={28} />
+          </button>
 
-            {/* Links Centered */}
-            <div className="flex-1 flex flex-col items-center justify-center gap-[20px]">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.to}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * index }}
-                >
-                  <Link
-                    to={link.to}
-                    onClick={() => setMobileOpen(false)}
-                    className="block text-white font-medium hover:text-white/70 transition-colors"
-                    style={{ fontSize: "24px" }}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+          {/* Nav links */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                fontSize: "28px",
+                color: "#ffffff",
+                padding: "16px 0",
+                textDecoration: "none",
+                display: "block",
+                textAlign: "center",
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 * navLinks.length }}
-                className="mt-8"
-              >
-                <Link to="/contact" onClick={() => setMobileOpen(false)}>
-                  <button className="flex items-center gap-2 bg-white text-black rounded-full px-8 py-4 text-base font-semibold hover:bg-white/90 transition-colors">
-                    Book a free call
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>,
-          document.body
-        )}
-      </AnimatePresence>
+          {/* CTA */}
+          <Link
+            to="/contact"
+            onClick={() => setMobileOpen(false)}
+            style={{ marginTop: "32px", textDecoration: "none" }}
+          >
+            <button
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "#ffffff",
+                color: "#000000",
+                borderRadius: "9999px",
+                padding: "16px 32px",
+                fontSize: "16px",
+                fontWeight: 600,
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              Book a free call
+              <ArrowRight style={{ width: "20px", height: "20px" }} />
+            </button>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

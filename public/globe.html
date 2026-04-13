@@ -128,7 +128,45 @@ am5.ready(function() {
     return am5.Bullet.new(root, { sprite: circle });
   });
 
-  chart.animate({ key: "rotationX", from: -78, to: 282, duration: 30000, loops: Infinity });
+  var isInteracting = false;
+  var resumeTimer = null;
+
+  function startRotation() {
+    var from = chart.get("rotationX") || 0;
+    chart.animate({
+      key: "rotationX",
+      from: from,
+      to: from + 360,
+      duration: 30000,
+      loops: Infinity
+    });
+  }
+
+  function smoothReturnAndSpin() {
+    var currentY = chart.get("rotationY") || 0;
+    chart.animate({
+      key: "rotationY",
+      to: 0,
+      duration: 800,
+      easing: am5.ease.out(am5.ease.cubic)
+    });
+    setTimeout(function() {
+      startRotation();
+    }, 800);
+  }
+
+  chart.events.on("panstarted", function() {
+    isInteracting = true;
+    if (resumeTimer) clearTimeout(resumeTimer);
+    chart.animations.forEach(function(a) { a.stop(); });
+  });
+
+  chart.events.on("panended", function() {
+    isInteracting = false;
+    smoothReturnAndSpin();
+  });
+
+  startRotation();
   chart.appear(1000, 100);
 });
 </script>

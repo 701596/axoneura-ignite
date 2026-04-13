@@ -27,8 +27,8 @@ const VideoPlayer = memo(({ hlsUrl, fallbackUrl, className = "", style }: VideoP
       const hls = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        maxBufferLength: 30,
-        maxMaxBufferLength: 60,
+        maxBufferLength: 300,
+        maxMaxBufferLength: 600,
       });
 
       hls.loadSource(hlsUrl);
