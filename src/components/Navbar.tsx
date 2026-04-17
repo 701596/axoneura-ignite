@@ -107,7 +107,7 @@ const Navbar = () => {
           {/* CTA */}
           <motion.div custom={navLinks.length} initial="hidden" animate="visible" variants={navItemVariants}>
             <Link href="/contact" className="ml-4 flex items-center gap-2 bg-white text-black rounded-full px-5 py-2 text-sm font-semibold hover:bg-white/90 transition-colors">
-              Book a free call
+              Book Free Demo
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>
@@ -193,7 +193,7 @@ const Navbar = () => {
             style={{ marginTop: "32px", textDecoration: "none" }}
             className="flex items-center gap-2 bg-white text-black rounded-full px-8 py-4 text-base font-semibold border-none cursor-pointer"
           >
-            Book a free call
+            Book Free Demo
             <ArrowRight style={{ width: "20px", height: "20px" }} />
           </Link>
         </div>

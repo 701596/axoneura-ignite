@@ -11,41 +11,17 @@ const HERO_HLS_URL =
   "https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8";
 
 const techStack = [
-  "React",
-  "TypeScript",
-  "Supabase",
-  "Vercel",
-  "Node.js",
-  "Tailwind CSS",
-  "GitHub",
-  "PostgreSQL",
-  "Vite",
-  "Framer Motion",
-  "Next.js",
-  "Prisma",
-  "Redis",
-  "Docker",
-  "AWS",
-  "Stripe",
-  "Figma",
-  "GraphQL",
-  "REST API",
-  "Python",
-  "TensorFlow",
-  "OpenAI API",
-  "Cloudflare",
-  "Nginx",
-  "Linux",
-  "Python",
-  "Rust",
-  "Go",
-  "C++",
-  "Java",
-  "Kotlin",
-  "Swift",
-  "R",
-  "Solidity",
-  "Bash",
+  "More Admissions",
+  "Zero Manual Work",
+  "Full Financial Control",
+  "Parent App",
+  "Automated Receipts",
+  "100% Data Security",
+  "No Technical Skills Needed",
+  "Cloud Backups",
+  "Dedicated Support Manager",
+  "WhatsApp Alerts",
+  "SMS Integration",
 ];
 
 const containerVariants = {
@@ -117,18 +93,18 @@ const Hero = () => {
         <motion.div variants={childVariants} className="mb-8">
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "999px", padding: "8px 18px", boxShadow: "0 0 20px rgba(255,255,255,0.06), 0 0 60px rgba(139,92,246,0.08)" }}>
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#8B5CF6", boxShadow: "0 0 8px rgba(139,92,246,0.8)", flexShrink: 0, display: "inline-block" }}></span>
-            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", fontWeight: 500, letterSpacing: "0.01em", textShadow: "0 0 20px rgba(255,255,255,0.3)" }}>Trusted by schools and businesses across the world</span>
+            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", fontWeight: 500, letterSpacing: "0.01em", textShadow: "0 0 20px rgba(255,255,255,0.3)" }}>Trusted by schools in Uttar Pradesh</span>
           </div>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
           variants={childVariants}
-          className="max-w-4xl font-bold tracking-[-0.03em] leading-[1.05] text-4xl md:text-6xl lg:text-7xl"
+          className="max-w-4xl font-bold tracking-[-0.03em] leading-[1.05] text-4xl md:text-5xl lg:text-7xl"
         >
-          <span className="text-white">Digital Systems</span>
+          <span className="text-white">Get More Admissions &</span>
           <br />
-          <span className="gradient-text">For Schools & Businesses.</span>
+          <span className="gradient-text">Run Your School Digitally.</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -137,22 +113,21 @@ const Hero = () => {
           className="mt-6 max-w-2xl leading-[1.7] text-base md:text-lg"
           style={{ color: "rgba(255,255,255,0.5)" }}
         >
-          We build digital systems for schools and businesses in India — custom software,
-          school ERPs, websites, and digital marketing that run your operations on autopilot.
+          We build complete digital systems for schools including website, admission management, and ERP — designed to grow your school and simplify operations.
         </motion.p>
 
         {/* CTA buttons */}
         <motion.div variants={childVariants} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
           <Link href="/contact">
             <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-8 py-3 text-base hover:bg-white/90 transition-colors">
-              Book a free call
+              Book Free Demo
               <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
 
-          <Link href="/services">
+          <Link href="/eduopus">
             <button className="flex items-center gap-2 rounded-full px-7 py-3 text-white/80 text-sm font-medium border border-white/20 hover:border-white/40 hover:text-white transition-all duration-300">
-              See our services
+              See How It Works
             </button>
           </Link>
         </motion.div>
@@ -164,7 +139,7 @@ const Hero = () => {
           <div className="container-max flex flex-col md:flex-row items-center gap-6 md:gap-0 py-8 px-4 sm:px-6 lg:px-8">
             <div className="shrink-0 md:pr-8 md:border-r" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
               <p className="text-sm font-medium whitespace-nowrap" style={{ color: "rgba(255,255,255,0.35)" }}>
-                Built with modern technology
+                Built for results
               </p>
             </div>
 
