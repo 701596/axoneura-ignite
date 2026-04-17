@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
@@ -50,11 +52,11 @@ const LeadForm = ({ source = "website", className = "" }: LeadFormProps) => {
       toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
     } else {
       // Silently call the edge function to email the lead details
-      fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-lead-email`, {
+      fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-lead-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify({
           name: result.data.name,

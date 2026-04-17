@@ -1,8 +1,11 @@
+"use client";
 import { motion } from "framer-motion";
 import { Zap, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import VideoPlayer from "@/components/VideoPlayer";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import InfiniteSlider from "@/components/ui/InfiniteSlider";
+
+const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false });
 
 const HERO_HLS_URL =
   "https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8";
@@ -58,7 +61,7 @@ const childVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };
 
@@ -123,9 +126,9 @@ const Hero = () => {
           variants={childVariants}
           className="max-w-4xl font-bold tracking-[-0.03em] leading-[1.05] text-4xl md:text-6xl lg:text-7xl"
         >
-          <span className="text-white">Your Vision</span>
+          <span className="text-white">Digital Systems</span>
           <br />
-          <span className="gradient-text">Our Digital Reality.</span>
+          <span className="gradient-text">For Schools & Businesses.</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -134,20 +137,20 @@ const Hero = () => {
           className="mt-6 max-w-2xl leading-[1.7] text-base md:text-lg"
           style={{ color: "rgba(255,255,255,0.5)" }}
         >
-          We turn bold ideas into digital systems that run your school or
-          business on autopilot.
+          We build digital systems for schools and businesses in India — custom software,
+          school ERPs, websites, and digital marketing that run your operations on autopilot.
         </motion.p>
 
         {/* CTA buttons */}
         <motion.div variants={childVariants} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <Link to="/contact">
+          <Link href="/contact">
             <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-8 py-3 text-base hover:bg-white/90 transition-colors">
               Book a free call
               <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
 
-          <Link to="/services">
+          <Link href="/services">
             <button className="flex items-center gap-2 rounded-full px-7 py-3 text-white/80 text-sm font-medium border border-white/20 hover:border-white/40 hover:text-white transition-all duration-300">
               See our services
             </button>

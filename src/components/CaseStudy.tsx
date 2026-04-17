@@ -1,5 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const metrics = [
   { value: "100%", label: "Financial accuracy since day one" },
@@ -104,7 +105,7 @@ const CaseStudy = () => (
     <p className="mt-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px" }}>
       Want results like this?{" "}
       <Link
-        to="/contact"
+        href="/contact"
         className="underline hover:text-white transition-colors"
       >
         Book a free call →

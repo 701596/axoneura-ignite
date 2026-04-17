@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -217,7 +219,7 @@ function GlobeChart() {
         let currentRotation = 0;
         let rotationAnimation: any = null;
 
-        function startRotation() {
+        const startRotation = () => {
           currentRotation = (chart.get("rotationX") as number) || 0;
           rotationAnimation = chart.animate({
             key: "rotationX",
@@ -226,7 +228,7 @@ function GlobeChart() {
             duration: 30000,
             loops: Infinity
           });
-        }
+        };
 
         chart.events.on("pointerdown", function() {
           isInteracting = true;
@@ -373,7 +375,7 @@ export default function Globe() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             viewport={{ once: true, margin: "-100px" }}
           >
             <span className="eyebrow">GLOBAL REACH</span>
@@ -413,7 +415,7 @@ export default function Globe() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             viewport={{ once: true, margin: "-100px" }}
             className="relative max-w-[550px] mx-auto w-full mt-6 lg:mt-0 h-[380px] lg:h-[500px]"
           >

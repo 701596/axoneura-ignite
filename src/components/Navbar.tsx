@@ -1,17 +1,20 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/eduopus", label: "EduOpus" },
-  { to: "/schools", label: "Schools" },
-  { to: "/business", label: "Business" },
-  { to: "/about", label: "About" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/eduopus", label: "EduOpus" },
+  { href: "/schools", label: "Schools" },
+  { href: "/business", label: "Business" },
+  { href: "/about", label: "About" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const navItemVariants = {
@@ -19,14 +22,14 @@ const navItemVariants = {
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.05 * index, duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { delay: 0.05 * index, duration: 0.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   }),
 };
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -36,14 +39,13 @@ const Navbar = () => {
 
   useEffect(() => {
     setMobileOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <nav
       className="fixed top-0 left-0 right-0"
       style={{ zIndex: 100, overflow: 'visible' }}
     >
-      {/* Separate background layer — keeps backdrop-filter isolated from text */}
       <div
         className={`absolute inset-0 transition-all duration-500 ${
           scrolled
@@ -58,7 +60,7 @@ const Navbar = () => {
         }}
       />
       <div className="container-max flex items-center justify-between h-16 sm:h-18 px-4 sm:px-6 lg:px-8" style={{ overflow: 'visible' }}>
-        <Link to="/" style={{
+        <Link href="/" style={{
           textDecoration: 'none',
           display: 'inline-block',
           flexShrink: 0,
@@ -76,22 +78,22 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link, index) => (
             <motion.div
-              key={link.to}
+              key={link.href}
               custom={index}
               initial="hidden"
               animate="visible"
               variants={navItemVariants}
             >
               <Link
-                to={link.to}
+                href={link.href}
                 className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                  location.pathname === link.to
+                  pathname === link.href
                     ? "text-white"
                     : "text-white/40 hover:text-white/70"
                 }`}
               >
                 {link.label}
-                {location.pathname === link.to && (
+                {pathname === link.href && (
                   <motion.div
                     layoutId="navActiveIndicator"
                     className="absolute bottom-0 left-2 right-2 h-[2px] rounded-full bg-white"
@@ -102,13 +104,11 @@ const Navbar = () => {
             </motion.div>
           ))}
 
-          {/* CTA — white bg, black text, no gradient border */}
+          {/* CTA */}
           <motion.div custom={navLinks.length} initial="hidden" animate="visible" variants={navItemVariants}>
-            <Link to="/contact">
-              <button className="ml-4 flex items-center gap-2 bg-white text-black rounded-full px-5 py-2 text-sm font-semibold hover:bg-white/90 transition-colors">
-                Book a free call
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+            <Link href="/contact" className="ml-4 flex items-center gap-2 bg-white text-black rounded-full px-5 py-2 text-sm font-semibold hover:bg-white/90 transition-colors">
+              Book a free call
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>
         </div>
@@ -170,8 +170,8 @@ const Navbar = () => {
           {/* Nav links */}
           {navLinks.map((link) => (
             <Link
-              key={link.to}
-              to={link.to}
+              key={link.href}
+              href={link.href}
               onClick={() => setMobileOpen(false)}
               style={{
                 fontSize: "28px",
@@ -188,28 +188,13 @@ const Navbar = () => {
 
           {/* CTA */}
           <Link
-            to="/contact"
+            href="/contact"
             onClick={() => setMobileOpen(false)}
             style={{ marginTop: "32px", textDecoration: "none" }}
+            className="flex items-center gap-2 bg-white text-black rounded-full px-8 py-4 text-base font-semibold border-none cursor-pointer"
           >
-            <button
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#ffffff",
-                color: "#000000",
-                borderRadius: "9999px",
-                padding: "16px 32px",
-                fontSize: "16px",
-                fontWeight: 600,
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              Book a free call
-              <ArrowRight style={{ width: "20px", height: "20px" }} />
-            </button>
+            Book a free call
+            <ArrowRight style={{ width: "20px", height: "20px" }} />
           </Link>
         </div>
       )}

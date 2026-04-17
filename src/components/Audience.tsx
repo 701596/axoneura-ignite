@@ -1,7 +1,9 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Store, CheckCircle, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface AudienceTab {
   id: string;
@@ -112,7 +114,7 @@ const Audience = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="glass-card-strong p-8 sm:p-12"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -134,7 +136,7 @@ const Audience = () => {
                   {currentTab.description}
                 </p>
 
-                <Link to={currentTab.link} className="inline-block mt-8">
+                <Link href={currentTab.link} className="inline-block mt-8">
                   <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-6 py-2.5 text-sm hover:bg-white/90 transition-colors">
                     {currentTab.ctaLabel}
                     <ArrowRight className="w-4 h-4" />

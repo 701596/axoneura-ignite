@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 
@@ -13,7 +14,7 @@ const ServiceCard = ({ icon: Icon, title, description, features, index = 0 }: Se
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
     viewport={{ once: true, margin: "-60px" }}
     whileHover={{ y: -6, transition: { duration: 0.3 } }}
     className="glass-card-strong p-6 sm:p-8 group transition-shadow duration-500 glow-border-hover"

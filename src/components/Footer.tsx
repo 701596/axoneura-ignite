@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const footerLinks = [
-  { to: "/services", label: "Services" },
-  { to: "/schools", label: "Schools" },
-  { to: "/business", label: "Business" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/eduopus", label: "EduOpus" },
+  { href: "/schools", label: "Schools" },
+  { href: "/business", label: "Business" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const Footer = () => (
@@ -24,12 +27,9 @@ const Footer = () => (
         <div className="flex flex-wrap gap-x-8 gap-y-3">
           {footerLinks.map((link) => (
             <Link
-              key={link.to}
-              to={link.to}
-              className="text-sm transition-colors"
-              style={{ color: "rgba(255,255,255,0.3)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
+              key={link.href}
+              href={link.href}
+              className="text-sm transition-colors text-white/30 hover:text-white/60"
             >
               {link.label}
             </Link>
@@ -52,16 +52,7 @@ const Footer = () => (
             href="https://www.instagram.com/axoneura?igsh=d3htcGUwZTJjcmY3"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm px-3 py-2 rounded-full border transition-colors"
-            style={{ color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.1)" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.7)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.4)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-            }}
+            className="text-sm px-3 py-2 rounded-full border transition-colors text-white/40 border-white/10 hover:text-white/70 hover:border-white/20"
           >
             Instagram
           </a>

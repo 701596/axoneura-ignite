@@ -1,20 +1,8 @@
-import { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import type { Metadata } from 'next';
 import SectionWrapper from "@/components/SectionWrapper";
+import FaqAccordion from "@/components/FaqAccordion";
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-interface FaqCategory {
-  title: string;
-  items: FaqItem[];
-}
-
-const faqCategories: FaqCategory[] = [
+const faqCategories = [
   {
     title: "General",
     items: [
@@ -130,90 +118,91 @@ const faqCategories: FaqCategory[] = [
   },
 ];
 
-const AccordionItem = ({
-  item,
-  isOpen,
-  onToggle,
-}: {
-  item: FaqItem;
-  isOpen: boolean;
-  onToggle: () => void;
-}) => (
-  <div
-    style={{
-      borderBottom: "1px solid rgba(255,255,255,0.07)",
-    }}
-  >
-    <button
-      onClick={onToggle}
-      className="w-full flex items-center justify-between py-5 text-left cursor-pointer"
-      style={{ background: "none", border: "none" }}
-    >
-      <span
-        className="text-white font-medium pr-4"
-        style={{ fontSize: "16px", lineHeight: 1.5 }}
-      >
-        {item.question}
-      </span>
-      <motion.div
-        animate={{ rotate: isOpen ? 180 : 0 }}
-        transition={{ duration: 0.25, ease: "easeInOut" }}
-        className="shrink-0"
-      >
-        <ChevronDown
-          size={18}
-          style={{ color: "rgba(255,255,255,0.35)" }}
-        />
-      </motion.div>
-    </button>
-    <AnimatePresence initial={false}>
-      {isOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          style={{ overflow: "hidden" }}
-        >
-          <p
-            className="pb-5"
-            style={{
-              color: "rgba(255,255,255,0.5)",
-              fontSize: "15px",
-              lineHeight: 1.7,
-              maxWidth: "640px",
-            }}
-          >
-            {item.answer}
-          </p>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  </div>
-);
+export const metadata: Metadata = {
+  title: 'School ERP Questions India — FAQ | Axoneura',
+  description: 'Find answers to common questions about school ERP systems in India, EduOpus fee management, website development, SEO, and digital marketing by Axoneura.',
+  keywords: ['school ERP questions India', 'EduOpus FAQ', 'school management software FAQ', 'digital marketing FAQ India'],
+  alternates: {
+    canonical: 'https://axoneura.in/faq',
+  },
+  openGraph: {
+    title: 'School ERP Questions India — FAQ | Axoneura',
+    description: 'Answers to common questions about school ERP systems, fee management, website development, and digital marketing in India.',
+    type: 'website',
+    url: 'https://axoneura.in/faq',
+    siteName: 'Axoneura',
+    images: [{ url: 'https://axoneura.in/axoneura-og-1200x630.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'School ERP Questions India — FAQ | Axoneura',
+    description: 'Common questions about school ERP, fee management, and digital marketing in India — answered by Axoneura.',
+    images: ['https://axoneura.in/axoneura-og-1200x630.png'],
+  },
+};
 
-const Faq = () => {
-  const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
-
-  const toggleItem = (categoryIndex: number, itemIndex: number) => {
-    const key = `${categoryIndex}-${itemIndex}`;
-    setOpenItems((previous) => ({
-      ...previous,
-      [key]: !previous[key],
-    }));
+export default function FaqPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does Axoneura do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Axoneura builds digital systems for schools and businesses across India. This includes custom software, school fee management ERPs, websites, digital marketing, SEO, automation, and ongoing support."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is EduOpus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EduOpus is Axoneura's school management ERP — a complete system for managing fees, attendance, parent communication, and financial reporting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can EduOpus replace our current fee register and spreadsheets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — completely. EduOpus handles fee collection, automatic receipt generation, real-time balance tracking, payment reminders, and full financial reporting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is our school's financial data secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All data is stored in encrypted cloud databases with role-based access control. Only authorized staff can access financial records."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technology do you use to build software?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use React, TypeScript, Node.js, Supabase, PostgreSQL, and deploy on Vercel and AWS. Modern, scalable, well-supported technology."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to work with Axoneura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every project is scoped individually. Book a free call and we'll give you a clear, honest estimate with no hidden costs."
+        }
+      }
+    ]
   };
 
   return (
     <>
-      <Helmet>
-        <title>Frequently Asked Questions | Axoneura</title>
-        <meta
-          name="description"
-          content="Find answers to common questions about Axoneura's digital systems, EduOpus school ERP, website development, SEO, and digital marketing for schools and businesses in India."
-        />
-        <link rel="canonical" href="https://axoneura.in/faq" />
-      </Helmet>
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SectionWrapper className="!pt-28 sm:!pt-36">
         <div className="max-w-3xl">
           <span className="eyebrow">FAQ</span>
@@ -221,58 +210,23 @@ const Faq = () => {
             className="text-white font-bold leading-tight tracking-[-0.03em] mt-4"
             style={{ fontSize: "clamp(2.5rem, 4vw + 1rem, 5rem)" }}
           >
-            Frequently Asked Questions
+            School ERP Questions and Answers for India
           </h1>
           <p
             className="mt-5 text-lg leading-[1.7]"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            Everything schools and businesses ask us before getting started.
+            Everything schools and businesses ask about school ERP systems in India
+            before getting started with Axoneura.
           </p>
         </div>
       </SectionWrapper>
 
       <SectionWrapper className="!pt-0 !pb-24">
         <div className="max-w-3xl">
-          {faqCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: categoryIndex * 0.08,
-              }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2
-                className="text-xs uppercase font-medium mb-2"
-                style={{
-                  color: "rgba(255,255,255,0.3)",
-                  letterSpacing: "0.12em",
-                }}
-              >
-                {category.title}
-              </h2>
-              <div>
-                {category.items.map((item, itemIndex) => (
-                  <AccordionItem
-                    key={itemIndex}
-                    item={item}
-                    isOpen={
-                      openItems[`${categoryIndex}-${itemIndex}`] || false
-                    }
-                    onToggle={() => toggleItem(categoryIndex, itemIndex)}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <FaqAccordion faqCategories={faqCategories} />
         </div>
       </SectionWrapper>
     </>
   );
-};
-
-export default Faq;
+}

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 
 /* ── Bento card data ─────────────────────── */
@@ -50,7 +51,7 @@ const cardVariants = {
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   }),
 };
 
