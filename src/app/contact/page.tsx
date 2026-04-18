@@ -4,14 +4,14 @@ import SectionWrapper from "@/components/SectionWrapper";
 import LeadForm from "@/components/LeadForm";
 
 export const metadata: Metadata = {
-  title: 'Hire a Digital Agency in Lucknow | Axoneura',
+  title: 'Hire Top Custom Software & Digital Agency in Lucknow, UP',
   description: 'Hire Axoneura — a digital agency in Lucknow, India. Custom software, web development, and digital marketing. Book a free consultation today.',
   keywords: ['hire digital agency Lucknow', 'web developer Lucknow', 'software company India', 'digital marketing agency UP'],
   alternates: {
     canonical: 'https://axoneura.in/contact',
   },
   openGraph: {
-    title: 'Hire a Digital Agency in Lucknow | Axoneura',
+    title: 'Hire Top Custom Software & Digital Agency in Lucknow, UP',
     description: 'Hire Axoneura — a digital agency in Lucknow, India. Custom software, web development, and digital marketing. Book a free consultation today.',
     type: 'website',
     url: 'https://axoneura.in/contact',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hire a Digital Agency in Lucknow | Axoneura',
+    title: 'Hire Top Custom Software & Digital Agency in Lucknow, UP',
     description: 'Book a free consultation with Axoneura — Lucknow\'s leading digital agency for software and marketing.',
     images: ['https://axoneura.in/axoneura-og-1200x630.png'],
   },

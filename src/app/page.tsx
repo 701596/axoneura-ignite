@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { CheckCircle, Zap } from "lucide-react";
+import { CheckCircle, Zap, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import LeadForm from "@/components/LeadForm";
 import FadeIn from "@/components/FadeIn";
@@ -10,14 +11,14 @@ const GlobeSection = dynamic(() => import('@/components/Globe'), {
 });
 
 export const metadata: Metadata = {
-  title: 'School ERP & Admission System India | Axoneura',
+  title: 'Complete School ERP & Online Admission System | Axoneura',
   description: 'Axoneura builds complete digital systems for Indian schools — increasing admissions, automating fee management, and reducing manual workload.',
   keywords: ['school ERP India', 'school admission system', 'fee management system', 'school management software'],
   alternates: {
     canonical: 'https://axoneura.in/',
   },
   openGraph: {
-    title: 'School ERP & Admission System India | Axoneura',
+    title: 'Complete School ERP & Online Admission System | Axoneura',
     description: 'Complete digital systems for Indian schools — increasing admissions and automating fee management.',
     url: 'https://axoneura.in/',
     siteName: 'Axoneura',
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'School ERP & Admission System India | Axoneura',
+    title: 'Complete School ERP & Online Admission System | Axoneura',
     description: 'Complete digital systems for Indian schools — increasing admissions and automating fee management.',
     images: ['https://axoneura.in/axoneura-og-1200x630.png'],
   },
@@ -65,17 +66,17 @@ export default function Home() {
             {[
               {
                 title: "1. Website",
-                subtitle: "Build trust & attract parents",
+                subtitle: "Parents find you on Google. Enquiries come to you.",
                 description: "A professional, fast-loading website that showcases your school's strengths and ranks high on Google, bringing more inquiries directly to your office."
               },
               {
                 title: "2. Admission System",
-                subtitle: "Capture & track inquiries",
+                subtitle: "Never lose a potential admission again.",
                 description: "Stop relying on paper forms. Process applications online digitally, send automatic WhatsApp updates to parents, and never lose track of a potential admission."
               },
               {
                 title: "3. Complete ERP",
-                subtitle: "Manage students, fees & staff",
+                subtitle: "100% financial accuracy. Zero manual work. From day one.",
                 description: "Eliminate manual fee tracking errors. Keep attendance, issue automated fee reminders, and handle payroll with 100% financial accuracy from day one."
               }
             ].map((feature, i) => (
@@ -106,17 +107,17 @@ export default function Home() {
               {
                 num: "01",
                 title: "Versus Traditional ERPs",
-                body: "Traditional softwares are built for engineers, not educators. They are clunky, hard to train staff on, and look outdated. Axoneura is modern, incredibly simple to use, and focuses entirely on increasing your admissions."
+                body: "Traditional softwares are built for engineers, not educators. They are clunky, hard to train staff on, and look outdated. Axoneura is modern, incredibly simple to use, and focuses entirely on increasing your admissions. Schools report 3x more qualified enquiries within 6 months."
               },
               {
                 num: "02",
                 title: "Versus Manual Excel & Registers",
-                body: "Excel leads to manual entry errors and unseen financial leaks. Axoneura automates your receipts, sending immediate WhatsApp payment proofs, ensuring zero discrepancies at the end of the month."
+                body: "Excel leads to manual entry errors and unseen financial leaks. Axoneura automates your receipts, sending immediate WhatsApp payment proofs, ensuring zero discrepancies at the end of the month. Proven across multiple UP schools — zero discrepancies since deployment."
               },
               {
                 num: "03",
                 title: "Versus Complex Platforms",
-                body: "You shouldn't pay for 100 features if you only need 10. We don't overwhelm you with bloated modules. You get a fast, affordable platform designed specifically for the core needs of Indian schools."
+                body: "You shouldn't pay for 100 features if you only need 10. We don't overwhelm you with bloated modules. You get a fast, affordable platform designed specifically for the core needs of Indian schools. Built by a team in Lucknow that understands how Indian schools actually operate."
               }
             ].map((row, index) => (
               <FadeIn
@@ -143,72 +144,17 @@ export default function Home() {
       </section>
 
       {/* Packages Section */}
+      {/* Packages Section */}
       <section className="section-padding">
         <div className="container-max">
-          <FadeIn className="text-center mb-14">
-            <h2 className="text-white font-bold tracking-[-0.02em] text-3xl md:text-5xl">
-              Simple, Honest Pricing Packages
-            </h2>
-            <p className="mt-4 max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
-              No hidden fees. Choose a plan that fits your school&apos;s current needs and seamlessly upgrade as you grow.
+          <FadeIn className="text-center flex flex-col items-center justify-center">
+            <p className="text-[16px] max-w-[560px] mx-auto text-center" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Affordable plans built for Indian schools — starting at less than the cost of one staff member's monthly salary. Book a demo and we'll give you a custom quote within 24 hours.
             </p>
+            <Link href="/contact" className="mt-6 inline-flex font-medium text-white/90 hover:text-white transition-colors items-center gap-2">
+              Book a free demo <ArrowRight className="w-4 h-4" />
+            </Link>
           </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {/* Starter */}
-            <FadeIn delay={0.1} className="glass-card p-8 flex flex-col relative" style={{ background: "rgba(255,255,255,0.02)" }}>
-              <h3 className="text-xl font-bold text-white mb-2">Starter</h3>
-              <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>Perfect for getting your school online quickly.</p>
-              <ul className="space-y-4 mb-8 flex-1">
-                {["Professional Modern Website", "SEO for Google Ranking", "Basic Admission Enquiries", "Mobile Responsive"].map(item => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-white/80">
-                    <CheckCircle className="w-4 h-4 mt-0.5 text-white/30" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#book-call" className="block text-center w-full py-3 rounded-full text-sm font-semibold border border-white/20 text-white hover:bg-white/5 transition-colors">
-                Contact Us
-              </a>
-            </FadeIn>
-
-            {/* Growth */}
-            <FadeIn delay={0.2} className="glass-card p-8 flex flex-col relative" style={{ background: "rgba(139, 92, 246, 0.08)", borderColor: "rgba(139, 92, 246, 0.3)" }}>
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#8B5CF6] text-white text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">
-                Most Popular
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Growth</h3>
-              <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>For schools ready to automate fee collections.</p>
-              <ul className="space-y-4 mb-8 flex-1">
-                {["Everything in Starter", "Basic ERP Modules", "Fee Management", "Automated WhatsApp Receipts", "Parent Data Portal"].map(item => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-white/90">
-                    <CheckCircle className="w-4 h-4 mt-0.5 text-[#8B5CF6]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#book-call" className="block text-center w-full py-3 rounded-full text-sm font-semibold bg-white text-black hover:bg-white/90 transition-colors">
-                Contact Us
-              </a>
-            </FadeIn>
-
-            {/* Pro */}
-            <FadeIn delay={0.3} className="glass-card p-8 flex flex-col relative" style={{ background: "rgba(255,255,255,0.02)" }}>
-              <h3 className="text-xl font-bold text-white mb-2">Pro</h3>
-              <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>Complete digital transformation for established schools.</p>
-              <ul className="space-y-4 mb-8 flex-1">
-                {["Everything in Growth", "Full ERP Suite", "Teacher & Staff Payroll", "Advanced Analytics", "Custom Feature Requests"].map(item => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-white/80">
-                    <CheckCircle className="w-4 h-4 mt-0.5 text-white/30" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#book-call" className="block text-center w-full py-3 rounded-full text-sm font-semibold border border-white/20 text-white hover:bg-white/5 transition-colors">
-                Contact Us
-              </a>
-            </FadeIn>
-          </div>
         </div>
       </section>
 
@@ -220,14 +166,13 @@ export default function Home() {
                 Ready to go digital?
               </h2>
               <p className="mt-4 leading-relaxed max-w-md" style={{ color: "rgba(255,255,255,0.5)" }}>
-                Tell us about your school or business. We'll get back within 24
+                Tell us about your school. We'll get back within 24
                 hours with a free consultation plan.
               </p>
               <div className="mt-8 flex flex-col gap-4">
                 {[
-                  "Free consultation — no strings attached",
+                  "Free 30-minute demo — see EduOpus live",
                   "Response within 24 hours",
-                  "India's fastest-growing digital agency",
                 ].map((point) => (
                   <div key={point} className="flex items-center gap-2.5">
                     <CheckCircle className="w-4 h-4" style={{ color: "rgba(255,255,255,0.2)" }} />

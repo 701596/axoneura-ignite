@@ -35,14 +35,14 @@ const results = [
 ];
 
 export const metadata: Metadata = {
-  title: 'School Fee Management Software India — EduOpus | Axoneura',
+  title: 'School Fee Management Software India | EduOpus by Axoneura',
   description: "EduOpus is India's smartest school fee management software. Auto receipts, parent portal, attendance alerts, and real-time dashboards by Axoneura.",
   keywords: ['school fee management software India', 'school ERP UP', 'fee management system Lucknow', 'school management software'],
   alternates: {
     canonical: 'https://axoneura.in/eduopus',
   },
   openGraph: {
-    title: 'School Fee Management Software India — EduOpus | Axoneura',
+    title: 'School Fee Management Software India | EduOpus by Axoneura',
     description: "EduOpus is India's smartest school fee management software — auto receipts, parent portal, attendance alerts, and real-time dashboards.",
     type: 'website',
     url: 'https://axoneura.in/eduopus',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'School Fee Management Software India — EduOpus',
+    title: 'School Fee Management Software India | EduOpus by Axoneura',
     description: 'Auto receipts, parent portal, attendance alerts, real-time dashboards — the last fee management system your school needs.',
     images: ['https://axoneura.in/axoneura-og-1200x630.png'],
   },
@@ -63,21 +63,21 @@ export default function EduOpus() {
       {/* 1. Hero Section */}
       <SectionWrapper className="!pt-28 sm:!pt-36">
         <div className="max-w-4xl text-center mx-auto">
-          <span className="eyebrow mb-6 flex justify-center">PRODUCT</span>
+          <span className="eyebrow mb-6 flex justify-center">EDUOPUS BY AXONEURA</span>
           <h1
             className="font-bold leading-tight tracking-[-0.03em]"
             style={{ 
-              fontSize: "clamp(2rem, 12vw, 5.5rem)",
+              fontSize: "clamp(2rem, 12vw, 4.5rem)",
               background: "linear-gradient(115deg, #ffffff 0%, #ffffff 30%, #d4d4d4 50%, #ffffff 70%, #a0a0a0 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
             }}
           >
-            EduOpus
+            School Fee Management Software
           </h1>
           <p className="mt-6 text-base md:text-2xl font-medium text-white max-w-3xl mx-auto leading-relaxed md:leading-tight">
-            The Last School Fee Management Software India Needs
+            The Last School ERP System India Needs
           </p>
           <p className="mt-4 text-base md:text-lg leading-relaxed md:leading-[1.7]" style={{ color: "rgba(255,255,255,0.5)" }}>
             Schools across India lose hundreds of hours every year to manual fee registers, handwritten receipts, unanswered parent calls, and chaotic spreadsheets. EduOpus — our school fee management software built for India — ends all of that permanently.

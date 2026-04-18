@@ -50,29 +50,32 @@ const AccordionItem = ({
         />
       </motion.div>
     </button>
-    <AnimatePresence initial={false}>
-      {isOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          style={{ overflow: "hidden" }}
+    <motion.div
+      initial={false}
+      animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+      style={{ overflow: "hidden" }}
+    >
+      <div 
+        style={{
+          visibility: isOpen ? "visible" : "hidden",
+          transition: "visibility 0s linear",
+          transitionDelay: isOpen ? "0s" : "0.3s"
+        }}
+      >
+        <p
+          className="pb-5 pt-2"
+          style={{
+            color: "rgba(255,255,255,0.5)",
+            fontSize: "15px",
+            lineHeight: 1.7,
+            maxWidth: "640px",
+          }}
         >
-          <p
-            className="pb-5"
-            style={{
-              color: "rgba(255,255,255,0.5)",
-              fontSize: "15px",
-              lineHeight: 1.7,
-              maxWidth: "640px",
-            }}
-          >
-            {item.answer}
-          </p>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          {item.answer}
+        </p>
+      </div>
+    </motion.div>
   </div>
 );
 

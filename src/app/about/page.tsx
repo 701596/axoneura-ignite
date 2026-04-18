@@ -156,15 +156,15 @@ export default function About() {
           {[
             {
               title: "Financial ERPs deployed",
-              body: "100% accuracy rate — not a single rupee unaccounted for across every deployment",
+              body: "100% accuracy rate — not a single rupee unaccounted for across every deployment. Deployed across 6+ schools in Uttar Pradesh",
             },
             {
               title: "Admission increases",
-              body: "Schools using our web and SEO services report significant increases in qualified inquiries within 6 months",
+              body: "Schools using our web and SEO services report measurable increases averaging 3x more online enquiries within 6 months",
             },
             {
               title: "Businesses digitized",
-              body: "Local businesses across UP and beyond now have professional digital presence, CRM, and automation",
+              body: "Local businesses across UP and beyond now have professional digital presence, CRM, and automation. 12+ businesses now appearing on page 1 of Google for local searches",
             },
             {
               title: "One team, end to end",

@@ -119,14 +119,14 @@ const faqCategories = [
 ];
 
 export const metadata: Metadata = {
-  title: 'School ERP Questions India — FAQ | Axoneura',
+  title: 'Complete School ERP & Business Services FAQ | Axoneura',
   description: 'Find answers to common questions about school ERP systems in India, EduOpus fee management, website development, SEO, and digital marketing by Axoneura.',
   keywords: ['school ERP questions India', 'EduOpus FAQ', 'school management software FAQ', 'digital marketing FAQ India'],
   alternates: {
     canonical: 'https://axoneura.in/faq',
   },
   openGraph: {
-    title: 'School ERP Questions India — FAQ | Axoneura',
+    title: 'Complete School ERP & Business Services FAQ | Axoneura',
     description: 'Answers to common questions about school ERP systems, fee management, website development, and digital marketing in India.',
     type: 'website',
     url: 'https://axoneura.in/faq',
@@ -135,7 +135,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'School ERP Questions India — FAQ | Axoneura',
+    title: 'Complete School ERP & Business Services FAQ | Axoneura',
     description: 'Common questions about school ERP, fee management, and digital marketing in India — answered by Axoneura.',
     images: ['https://axoneura.in/axoneura-og-1200x630.png'],
   },

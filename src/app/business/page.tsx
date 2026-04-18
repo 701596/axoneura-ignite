@@ -24,14 +24,14 @@ const solutions = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Web Development & Digital Marketing India | Axoneura',
+  title: 'Web Development & Local Digital Marketing India | Axoneura',
   description: 'Professional web development and digital marketing for Indian businesses. Axoneura builds websites, runs SEO campaigns, and automates operations.',
   keywords: ['web development digital marketing India', 'business website India', 'local SEO India', 'digital marketing agency', 'Google Ads India'],
   alternates: {
     canonical: 'https://axoneura.in/business',
   },
   openGraph: {
-    title: 'Web Development & Digital Marketing India | Axoneura',
+    title: 'Web Development & Local Digital Marketing India | Axoneura',
     description: 'Professional web development and digital marketing for Indian businesses — websites, SEO, CRM, and automation.',
     type: 'website',
     url: 'https://axoneura.in/business',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Development & Digital Marketing India | Axoneura',
+    title: 'Web Development & Local Digital Marketing India | Axoneura',
     description: 'Websites, SEO, CRM, and automation — web development and digital marketing for Indian businesses.',
     images: ['https://axoneura.in/axoneura-og-1200x630.png'],
   },

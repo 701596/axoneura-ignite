@@ -102,9 +102,9 @@ const Hero = () => {
           variants={childVariants}
           className="max-w-4xl font-bold tracking-[-0.03em] leading-[1.05] text-4xl md:text-5xl lg:text-7xl"
         >
-          <span className="text-white">Get More Admissions &</span>
+          <span className="text-white">More Admissions.</span>
           <br />
-          <span className="gradient-text">Run Your School Digitally.</span>
+          <span className="gradient-text">Zero Fee Chaos.</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -113,7 +113,9 @@ const Hero = () => {
           className="mt-6 max-w-2xl leading-[1.7] text-base md:text-lg"
           style={{ color: "rgba(255,255,255,0.5)" }}
         >
-          We build complete digital systems for schools including website, admission management, and ERP — designed to grow your school and simplify operations.
+          Axoneura gives Indian schools a complete system — website, fee management, parent portal, and admissions — deployed in weeks, not months.
+          <br />
+          Run Your School on Autopilot.
         </motion.p>
 
         {/* CTA buttons */}

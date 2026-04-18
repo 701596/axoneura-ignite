@@ -24,14 +24,14 @@ const solutions = [
 ];
 
 export const metadata: Metadata = {
-  title: 'School Management System India | Axoneura',
+  title: 'Complete School Management System Software India | Axoneura',
   description: "Axoneura's school management system for India digitizes admissions, fees, attendance, and parent communication. 100% financial accuracy guaranteed.",
   keywords: ['school management system India', 'school digitization', 'school ERP India', 'school automation Lucknow', 'school software UP'],
   alternates: {
     canonical: 'https://axoneura.in/schools',
   },
   openGraph: {
-    title: 'School Management System India | Axoneura',
+    title: 'Complete School Management System Software India | Axoneura',
     description: "Digitize admissions, fees, attendance, and parent communication with Axoneura's school management system for India.",
     type: 'website',
     url: 'https://axoneura.in/schools',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'School Management System India | Axoneura',
+    title: 'Complete School Management System Software India | Axoneura',
     description: 'Digitize admissions, fees, and parent communication — school management system built for India.',
     images: ['https://axoneura.in/axoneura-og-1200x630.png'],
   },
@@ -113,6 +113,17 @@ export default function Schools() {
               <span className="text-sm text-white">{solution}</span>
             </div>
           ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <div className="max-w-4xl">
+          <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight">
+            Every month you wait is another month of manual work, financial gaps, and admissions lost to schools that simply look more organized than you.
+          </h2>
+          <p className="mt-4 text-lg" style={{ color: "rgba(255,255,255,0.5)" }}>
+            The principals who book a demo this month will have EduOpus live before the next academic year begins.
+          </p>
         </div>
       </SectionWrapper>
 
