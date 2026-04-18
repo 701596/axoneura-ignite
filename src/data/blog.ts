@@ -98,7 +98,7 @@ The schools in your area that are running the smoothest operations — the ones 
     excerpt:
       "Over 75% of people never scroll past Google's first page. Here's exactly how local Indian businesses can get there — step by step.",
     targetKeyword: "how to rank on Google local business India",
-    date: "2026-04-24",
+    date: "2026-01-24",
     readingTime: "5 min read",
     author: "Axoneura",
     ctaLink: "/business",
@@ -187,7 +187,7 @@ Axoneura handles all of this for businesses across India — SEO setup, content 
     excerpt:
       "We asked 50 school principals in UP what their fee system actually costs them. The numbers surprised everyone — including us.",
     targetKeyword: "school management system vs spreadsheet India",
-    date: "2026-05-01",
+    date: "2026-03-01",
     readingTime: "4 min read",
     author: "Axoneura",
     ctaLink: "/eduopus",
@@ -244,7 +244,7 @@ If you're a school principal or administrator in India and you want to see what 
     excerpt:
       "Families judge schools online before they ever visit. A school without a professional website is losing admissions to competitors — without knowing it.",
     targetKeyword: "school website India 2025",
-    date: "2026-05-08",
+    date: "2026-04-08",
     readingTime: "4 min read",
     author: "Axoneura",
     ctaLink: "/schools",
@@ -306,7 +306,7 @@ If your school's website is more than two years old, or if you're not getting on
     excerpt:
       "If your school relies on manual registers or disjointed software, you are likely losing revenue to untracked fee defaults every month. Here is how modern School ERPs solve this.",
     targetKeyword: "school ERP fee collection India",
-    date: "2026-05-15",
+    date: "2025-05-15",
     readingTime: "6 min read",
     author: "Axoneura",
     ctaLink: "/eduopus",
